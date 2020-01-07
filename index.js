@@ -1,8 +1,8 @@
 require('dotenv').config(); // Load variables from .env into the environment
 
 /** Configuration **/
-const websocketPort = 80; // Port that the websocket server will listen on (For incoming wallet connections)
-const webserverPort = 17076; // Port that the webserver will listen on (For receiving new blocks from Nano node)
+const websocketPort = process.env.WSOCKET_PORT || 8080; // Port that the websocket server will listen on (For incoming wallet connections)
+const webserverPort = process.env.WSERVER_PORT || 17076; // Port that the webserver will listen on (For receiving new blocks from Nano node)
 const statTime = 10; // Seconds between reporting statistics to console (Connected clients, TPS)
 
 // Set up connection to PostgreSQL server used for storing timestamps (Will fail safely if not used)
